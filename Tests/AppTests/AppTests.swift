@@ -5,17 +5,17 @@ final class AppTests: XCTestCase {
     var app: Application!
     
     override func setUp() async throws {
-        self.app = Application(.testing)
+        self.app = try await Application.make(.testing)
         try await configure(app)
     }
     
     override func tearDown() async throws { 
-        self.app.shutdown()
+        try await self.app.asyncShutdown()
         self.app = nil
     }
     
     func testHelloWorld() async throws {
-        try self.app.test(.GET, "hello", afterResponse: { res in
+        try await self.app.test(.GET, "hello", afterResponse: { res async in
             XCTAssertEqual(res.status, .ok)
             XCTAssertEqual(res.body.string, "Hello, world!")
         })
