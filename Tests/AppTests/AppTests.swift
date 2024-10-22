@@ -6,8 +6,14 @@ import Testing
 struct AppTests {
     private func withApp(_ test: (Application) async throws -> ()) async throws {
         let app = try await Application.make(.testing)
-        try await configure(app)
-        try await test(app)
+        do {
+            try await configure(app)
+            try await test(app)
+        }
+        catch {
+            try await app.asyncShutdown()
+            throw error
+        }
         try await app.asyncShutdown()
     }
     
