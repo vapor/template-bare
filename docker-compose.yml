@@ -8,9 +8,9 @@
 #
 # Learn more: https://docs.docker.com/compose/reference/
 #
-#   Build images: docker-compose build
-#      Start app: docker-compose up app
-#       Stop all: docker-compose down
+#   Build images: docker compose build
+#      Start app: docker compose up app
+#       Stop all: docker compose down
 #
 version: '3.7'
 
