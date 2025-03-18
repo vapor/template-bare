@@ -8,10 +8,10 @@ struct AppTests {
         let app = try await Application.make(.testing)
         do {
             try await configure(app)
-            try await test(app)
-        }
+                        try await test(app)
+                    }
         catch {
-            try await app.asyncShutdown()
+                        try await app.asyncShutdown()
             throw error
         }
         try await app.asyncShutdown()
