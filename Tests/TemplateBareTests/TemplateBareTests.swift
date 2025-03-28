@@ -1,9 +1,9 @@
-@testable import App
+@testable import TemplateBare
 import VaporTesting
 import Testing
 
 @Suite("App Tests")
-struct AppTests {
+struct TemplateBareTests {
     private func withApp(_ test: (Application) async throws -> ()) async throws {
         let app = try await Application.make(.testing)
         do {

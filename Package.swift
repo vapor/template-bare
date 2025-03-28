@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "template-bare",
+    name: "TemplateBare",
     platforms: [
        .macOS(.v13)
     ],
@@ -14,7 +14,7 @@ let package = Package(
     ],
     targets: [
         .executableTarget(
-            name: "App",
+            name: "TemplateBare",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
                 .product(name: "NIOCore", package: "swift-nio"),
@@ -23,9 +23,9 @@ let package = Package(
             swiftSettings: swiftSettings
         ),
         .testTarget(
-            name: "AppTests",
+            name: "TemplateBareTests",
             dependencies: [
-                .target(name: "App"),
+                .target(name: "TemplateBare"),
                 .product(name: "VaporTesting", package: "vapor"),
             ],
             swiftSettings: swiftSettings
