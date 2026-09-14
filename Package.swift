@@ -1,4 +1,4 @@
-// swift-tools-version:6.0
+// swift-tools-version:6.3
 import PackageDescription
 
 let package = Package(
@@ -8,9 +8,9 @@ let package = Package(
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.115.0"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.121.4"),
         // 🔵 Non-blocking, event-driven networking for Swift. Used for custom executors
-        .package(url: "https://github.com/apple/swift-nio.git", from: "2.65.0"),
+        .package(url: "https://github.com/apple/swift-nio.git", from: "2.101.0"),
     ],
     targets: [
         .executableTarget(
@@ -35,4 +35,8 @@ let package = Package(
 
 var swiftSettings: [SwiftSetting] { [
     .enableUpcomingFeature("ExistentialAny"),
+    .enableUpcomingFeature("InternalImportsByDefault"),
+    .enableUpcomingFeature("MemberImportVisibility"),
+    .enableUpcomingFeature("InferIsolatedConformances"),
+    .enableUpcomingFeature("ImmutableWeakCaptures"),
 ] }
